@@ -1,0 +1,15 @@
+# Dependencies
+node_modules/
+package-lock.json
+
+# Builds
+dist/
+build/
+
+# Secrets
+.env
+.env.local
+
+# IDE files
+.vscode/
+.idea/
