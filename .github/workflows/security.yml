@@ -34,10 +34,10 @@ jobs:
           docker build -t ${{ env.IMAGE_NAME }}:latest -f demo-app/Dockerfile demo-app/
 
       # Bước 4: Gọi ScanDocker kiểm tra chất lượng (Shift-Left Security)
-      - name: 🛡️ Security Check (SCA with ScanDocker)
+      - name: 🛡️ Security Check (SAST with ScanDocker)
         run: |
-          echo "Gọi API Quét từ hệ thống ScanDocker..."
-          python ci-scripts/trigger_scan.py ${{ env.IMAGE_NAME }}:latest
+          echo "Gọi API Quét Mã Nguồn từ hệ thống ScanDocker..."
+          python ci-scripts/trigger_sast.py https://github.com/${{ github.repository }}
 
       # Bước 5: Deploy (Chỉ chạy nếu bước Quét thành công và không bị chặn lại)
       - name: 🚀 Deploy to Production
