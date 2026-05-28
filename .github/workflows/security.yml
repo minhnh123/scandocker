@@ -1,0 +1,47 @@
+name: DevSecOps CI Pipeline
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+env:
+  # Cấu hình biến môi trường trỏ về máy chủ ScanDocker đang chạy (khi Demo điền IP Public vào đây)
+  SCANDOCKER_API_URL: "https://footsore-morse-diary.ngrok-free.dev"
+  IMAGE_NAME: "scandocker-demo-app"
+
+jobs:
+  build-and-scan:
+    runs-on: ubuntu-latest
+    steps:
+      # Bước 1: Lấy mã nguồn mới nhất
+      - name: 📥 Checkout Source Code
+        uses: actions/checkout@v3
+
+      # Bước 2: Cài đặt Python để chạy script kiểm tra bảo mật
+      - name: 🐍 Setup Python 3.9
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.9"
+
+      # Bước 3: Đóng gói ứng dụng thành Docker Image
+      - name: 🐳 Build Docker Image
+        run: |
+          echo "Bắt đầu đóng gói mã nguồn thành Docker Image..."
+          docker build -t ${{ env.IMAGE_NAME }}:latest -f demo-app/Dockerfile demo-app/
+
+      # Bước 4: Gọi ScanDocker kiểm tra chất lượng (Shift-Left Security)
+      - name: 🛡️ Security Check (SCA with ScanDocker)
+        run: |
+          echo "Gọi API Quét từ hệ thống ScanDocker..."
+          python ci-scripts/trigger_scan.py ${{ env.IMAGE_NAME }}:latest
+
+      # Bước 5: Deploy (Chỉ chạy nếu bước Quét thành công và không bị chặn lại)
+      - name: 🚀 Deploy to Production
+        if: success()
+        run: |
+          echo "✅ Đã vượt qua vòng kiểm duyệt bảo mật!"
+          echo "Đang triển khai phiên bản mới lên máy chủ Production..."

@@ -1,0 +1,10 @@
+{
+  "name": "demo-vulnerable-app",
+  "version": "1.0.0",
+  "description": "App cố tình chứa lỗ hổng để demo CI/CD",
+  "main": "server.js",
+  "dependencies": {
+    "express": "4.16.0",
+    "lodash": "4.17.15"
+  }
+}

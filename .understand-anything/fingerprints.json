@@ -1,0 +1,1075 @@
+{
+  "version": "1.0.0",
+  "gitCommitHash": "a43320c2d3c78e291139953f9bccae90159167cd",
+  "generatedAt": "2026-05-25T16:49:36.861Z",
+  "files": {
+    ".github/workflows/security.yml": {
+      "filePath": ".github/workflows/security.yml",
+      "contentHash": "4338ea170ff545e79cda952e1914c2fd28c5e7a099121f06e527dde022a3a419",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 51,
+      "hasStructuralAnalysis": true
+    },
+    "AI_INSTRUCTIONS.md": {
+      "filePath": "AI_INSTRUCTIONS.md",
+      "contentHash": "73fefc2b3338df07ea7127fb9d2f05dba540e454c2dc6085b7eb7ede3ceeebde",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 45,
+      "hasStructuralAnalysis": true
+    },
+    "backend/database.py": {
+      "filePath": "backend/database.py",
+      "contentHash": "1077a1eac88f74340d09ba707a76c5f87f5be308bd2d260446da91cca946cfc5",
+      "functions": [
+        {
+          "name": "init_db",
+          "params": [],
+          "returnType": "None",
+          "exported": true,
+          "lineCount": 29
+        },
+        {
+          "name": "save_scan",
+          "params": [
+            "image_name",
+            "critical",
+            "high",
+            "medium",
+            "low",
+            "unknown",
+            "raw_data"
+          ],
+          "returnType": "None",
+          "exported": true,
+          "lineCount": 14
+        },
+        {
+          "name": "get_history",
+          "params": [
+            "image_name"
+          ],
+          "returnType": "List[Dict[str, Any]]",
+          "exported": true,
+          "lineCount": 16
+        },
+        {
+          "name": "get_schedule_settings",
+          "params": [],
+          "returnType": "Dict[str, Any]",
+          "exported": true,
+          "lineCount": 8
+        },
+        {
+          "name": "update_schedule_settings",
+          "params": [
+            "is_active",
+            "interval_minutes"
+          ],
+          "returnType": "None",
+          "exported": true,
+          "lineCount": 9
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "json",
+          "specifiers": [
+            "json"
+          ]
+        },
+        {
+          "source": "os",
+          "specifiers": [
+            "os"
+          ]
+        },
+        {
+          "source": "sqlite3",
+          "specifiers": [
+            "sqlite3"
+          ]
+        },
+        {
+          "source": "typing",
+          "specifiers": [
+            "Any",
+            "Dict",
+            "List",
+            "Optional"
+          ]
+        }
+      ],
+      "exports": [
+        "init_db",
+        "save_scan",
+        "get_history",
+        "get_schedule_settings",
+        "update_schedule_settings"
+      ],
+      "totalLines": 96,
+      "hasStructuralAnalysis": true
+    },
+    "backend/main.py": {
+      "filePath": "backend/main.py",
+      "contentHash": "28955a0c5e5eb7dba0b6c9a500f7a4cbeb6caf2ff64372e88d1cdb16fb84d754",
+      "functions": [
+        {
+          "name": "get_docker_client",
+          "params": [],
+          "exported": true,
+          "lineCount": 9
+        },
+        {
+          "name": "scheduled_scan_all_containers",
+          "params": [],
+          "exported": true,
+          "lineCount": 21
+        },
+        {
+          "name": "update_scheduler_job",
+          "params": [],
+          "exported": true,
+          "lineCount": 8
+        },
+        {
+          "name": "startup_event",
+          "params": [],
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "shutdown_event",
+          "params": [],
+          "exported": true,
+          "lineCount": 2
+        },
+        {
+          "name": "read_root",
+          "params": [],
+          "returnType": "Dict[str, Any]",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "get_images",
+          "params": [],
+          "returnType": "Dict[str, Any]",
+          "exported": true,
+          "lineCount": 15
+        },
+        {
+          "name": "get_containers",
+          "params": [],
+          "returnType": "Dict[str, Any]",
+          "exported": true,
+          "lineCount": 16
+        },
+        {
+          "name": "scan_image",
+          "params": [
+            "image_name"
+          ],
+          "returnType": "Dict[str, Any]",
+          "exported": true,
+          "lineCount": 57
+        },
+        {
+          "name": "scan_cis",
+          "params": [],
+          "returnType": "Dict[str, Any]",
+          "exported": true,
+          "lineCount": 75
+        },
+        {
+          "name": "auto_remediate",
+          "params": [
+            "request"
+          ],
+          "returnType": "Dict[str, Any]",
+          "exported": true,
+          "lineCount": 16
+        },
+        {
+          "name": "get_scan_history",
+          "params": [
+            "image_name"
+          ],
+          "returnType": "Dict[str, Any]",
+          "exported": true,
+          "lineCount": 6
+        },
+        {
+          "name": "test_telegram_alert",
+          "params": [],
+          "returnType": "Dict[str, str]",
+          "exported": true,
+          "lineCount": 6
+        },
+        {
+          "name": "get_schedule",
+          "params": [],
+          "returnType": "Dict[str, Any]",
+          "exported": true,
+          "lineCount": 2
+        },
+        {
+          "name": "update_schedule",
+          "params": [
+            "config"
+          ],
+          "returnType": "Dict[str, Any]",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "scan_sast",
+          "params": [
+            "request"
+          ],
+          "returnType": "Dict[str, Any]",
+          "exported": true,
+          "lineCount": 24
+        }
+      ],
+      "classes": [
+        {
+          "name": "RemediationRequest",
+          "methods": [],
+          "properties": [
+            "cve_id",
+            "package_name",
+            "installed_version",
+            "fixed_version",
+            "os_context"
+          ],
+          "exported": true,
+          "lineCount": 6
+        },
+        {
+          "name": "ScheduleConfig",
+          "methods": [],
+          "properties": [
+            "is_active",
+            "interval_minutes"
+          ],
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "SastRequest",
+          "methods": [],
+          "properties": [
+            "github_url"
+          ],
+          "exported": true,
+          "lineCount": 2
+        }
+      ],
+      "imports": [
+        {
+          "source": "json",
+          "specifiers": [
+            "json"
+          ]
+        },
+        {
+          "source": "os",
+          "specifiers": [
+            "os"
+          ]
+        },
+        {
+          "source": "subprocess",
+          "specifiers": [
+            "subprocess"
+          ]
+        },
+        {
+          "source": "traceback",
+          "specifiers": [
+            "traceback"
+          ]
+        },
+        {
+          "source": "typing",
+          "specifiers": [
+            "Any",
+            "Dict",
+            "Optional"
+          ]
+        },
+        {
+          "source": "docker",
+          "specifiers": [
+            "docker"
+          ]
+        },
+        {
+          "source": "google.generativeai",
+          "specifiers": [
+            "genai"
+          ]
+        },
+        {
+          "source": "dotenv",
+          "specifiers": [
+            "load_dotenv"
+          ]
+        },
+        {
+          "source": "fastapi",
+          "specifiers": [
+            "FastAPI",
+            "HTTPException"
+          ]
+        },
+        {
+          "source": "fastapi.middleware.cors",
+          "specifiers": [
+            "CORSMiddleware"
+          ]
+        },
+        {
+          "source": "pydantic",
+          "specifiers": [
+            "BaseModel"
+          ]
+        },
+        {
+          "source": "database",
+          "specifiers": [
+            "database"
+          ]
+        },
+        {
+          "source": "notifier",
+          "specifiers": [
+            "notifier"
+          ]
+        },
+        {
+          "source": "apscheduler.schedulers.background",
+          "specifiers": [
+            "BackgroundScheduler"
+          ]
+        }
+      ],
+      "exports": [
+        "get_docker_client",
+        "scheduled_scan_all_containers",
+        "update_scheduler_job",
+        "startup_event",
+        "shutdown_event",
+        "read_root",
+        "get_images",
+        "get_containers",
+        "scan_image",
+        "scan_cis",
+        "RemediationRequest",
+        "auto_remediate",
+        "get_scan_history",
+        "test_telegram_alert",
+        "ScheduleConfig",
+        "get_schedule",
+        "update_schedule",
+        "SastRequest",
+        "scan_sast"
+      ],
+      "totalLines": 357,
+      "hasStructuralAnalysis": true
+    },
+    "backend/notifier.py": {
+      "filePath": "backend/notifier.py",
+      "contentHash": "c46169ee3920731ea49e7f685d1f60615c44bfd17ab8e81529f047fc396fadad",
+      "functions": [
+        {
+          "name": "send_telegram_alert",
+          "params": [
+            "image_name",
+            "critical_count",
+            "high_count",
+            "is_test"
+          ],
+          "returnType": "bool",
+          "exported": true,
+          "lineCount": 30
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "json",
+          "specifiers": [
+            "json"
+          ]
+        },
+        {
+          "source": "os",
+          "specifiers": [
+            "os"
+          ]
+        },
+        {
+          "source": "urllib.parse",
+          "specifiers": [
+            "urllib.parse"
+          ]
+        },
+        {
+          "source": "urllib.request",
+          "specifiers": [
+            "urllib.request"
+          ]
+        },
+        {
+          "source": "typing",
+          "specifiers": [
+            "Optional"
+          ]
+        },
+        {
+          "source": "dotenv",
+          "specifiers": [
+            "load_dotenv"
+          ]
+        }
+      ],
+      "exports": [
+        "send_telegram_alert"
+      ],
+      "totalLines": 44,
+      "hasStructuralAnalysis": true
+    },
+    "backend/pyproject.toml": {
+      "filePath": "backend/pyproject.toml",
+      "contentHash": "f2a7803f52e05e9955a8694efe03fd2d480e2e7cf225874c02c1d8afaebaf8fc",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 12,
+      "hasStructuralAnalysis": true
+    },
+    "backend/test_main.py": {
+      "filePath": "backend/test_main.py",
+      "contentHash": "8205088dd55b162017c077a2fa910ff40651231b740e057b74895a301fce756a",
+      "functions": [
+        {
+          "name": "test_read_root",
+          "params": [],
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "test_get_history",
+          "params": [],
+          "exported": true,
+          "lineCount": 5
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "fastapi.testclient",
+          "specifiers": [
+            "TestClient"
+          ]
+        },
+        {
+          "source": "main",
+          "specifiers": [
+            "app"
+          ]
+        }
+      ],
+      "exports": [
+        "test_read_root",
+        "test_get_history"
+      ],
+      "totalLines": 16,
+      "hasStructuralAnalysis": true
+    },
+    "ci-scripts/trigger_scan.py": {
+      "filePath": "ci-scripts/trigger_scan.py",
+      "contentHash": "131dc46464a04e65c4ccfd4b76dc4b976741b2e5061d61306c614c39d403e10a",
+      "functions": [
+        {
+          "name": "check_security",
+          "params": [
+            "image_name",
+            "backend_url"
+          ],
+          "exported": true,
+          "lineCount": 54
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "os",
+          "specifiers": [
+            "os"
+          ]
+        },
+        {
+          "source": "sys",
+          "specifiers": [
+            "sys"
+          ]
+        },
+        {
+          "source": "json",
+          "specifiers": [
+            "json"
+          ]
+        },
+        {
+          "source": "urllib.request",
+          "specifiers": [
+            "urllib.request"
+          ]
+        },
+        {
+          "source": "urllib.parse",
+          "specifiers": [
+            "urllib.parse"
+          ]
+        },
+        {
+          "source": "urllib.error",
+          "specifiers": [
+            "URLError",
+            "HTTPError"
+          ]
+        },
+        {
+          "source": "time",
+          "specifiers": [
+            "time"
+          ]
+        }
+      ],
+      "exports": [
+        "check_security"
+      ],
+      "totalLines": 74,
+      "hasStructuralAnalysis": true
+    },
+    "frontend/eslint.config.js": {
+      "filePath": "frontend/eslint.config.js",
+      "contentHash": "0197d9a843aaae267303c4d1ab1a43afad1afacc7646cdf6cf94a5af6b815fb8",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "@eslint/js",
+          "specifiers": [
+            "js"
+          ]
+        },
+        {
+          "source": "globals",
+          "specifiers": [
+            "globals"
+          ]
+        },
+        {
+          "source": "eslint-plugin-react-hooks",
+          "specifiers": [
+            "reactHooks"
+          ]
+        },
+        {
+          "source": "eslint-plugin-react-refresh",
+          "specifiers": [
+            "reactRefresh"
+          ]
+        },
+        {
+          "source": "eslint/config",
+          "specifiers": [
+            "defineConfig",
+            "globalIgnores"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 22,
+      "hasStructuralAnalysis": true
+    },
+    "frontend/index.html": {
+      "filePath": "frontend/index.html",
+      "contentHash": "c489ca10e39dee2c944678c7cbe29c05c1464f0d3ad331829be0616dfe292ada",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 14,
+      "hasStructuralAnalysis": false
+    },
+    "frontend/package.json": {
+      "filePath": "frontend/package.json",
+      "contentHash": "eb7418a577f44e957c5944bf90895d611b542ae687d9bfb3664dc30ad8d384ae",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 47,
+      "hasStructuralAnalysis": true
+    },
+    "frontend/README.md": {
+      "filePath": "frontend/README.md",
+      "contentHash": "a460b4dc7e6392e76aa54d844c9261b8db0adb7f967ba8300526456f1dcf5fb4",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 17,
+      "hasStructuralAnalysis": true
+    },
+    "frontend/src/App.css": {
+      "filePath": "frontend/src/App.css",
+      "contentHash": "d097818d72b7d35aab2ee53fbb4017d5f47556a9e1ad6e0f2a395bd6c495e2b8",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 183,
+      "hasStructuralAnalysis": false
+    },
+    "frontend/src/App.test.tsx": {
+      "filePath": "frontend/src/App.test.tsx",
+      "contentHash": "665b1fce8a2cf12362d69e83e785e1965e36097771f218404ff633cdc069e98d",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "React"
+          ]
+        },
+        {
+          "source": "@testing-library/react",
+          "specifiers": [
+            "render",
+            "screen"
+          ]
+        },
+        {
+          "source": "vitest",
+          "specifiers": [
+            "describe",
+            "it",
+            "expect",
+            "vi"
+          ]
+        },
+        {
+          "source": "./App",
+          "specifiers": [
+            "App"
+          ]
+        },
+        {
+          "source": "@testing-library/jest-dom",
+          "specifiers": []
+        }
+      ],
+      "exports": [],
+      "totalLines": 21,
+      "hasStructuralAnalysis": true
+    },
+    "frontend/src/App.tsx": {
+      "filePath": "frontend/src/App.tsx",
+      "contentHash": "204742348cf346dd6cd10b24796d277473c2e201972a8bff841f5318374fa0ac",
+      "functions": [
+        {
+          "name": "App",
+          "params": [],
+          "exported": false,
+          "lineCount": 259
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "React",
+            "useState",
+            "useEffect"
+          ]
+        },
+        {
+          "source": "lucide-react",
+          "specifiers": [
+            "Shield",
+            "LayoutDashboard",
+            "Box",
+            "HardDrive",
+            "Settings",
+            "AlertTriangle",
+            "Activity",
+            "Code"
+          ]
+        },
+        {
+          "source": "axios",
+          "specifiers": [
+            "axios"
+          ]
+        },
+        {
+          "source": "recharts",
+          "specifiers": [
+            "LineChart",
+            "Line",
+            "XAxis",
+            "YAxis",
+            "CartesianGrid",
+            "Tooltip",
+            "Legend",
+            "ResponsiveContainer"
+          ]
+        },
+        {
+          "source": "./components/ImagesList",
+          "specifiers": [
+            "ImagesList"
+          ]
+        },
+        {
+          "source": "./components/ContainersList",
+          "specifiers": [
+            "ContainersList"
+          ]
+        },
+        {
+          "source": "./components/CisBench",
+          "specifiers": [
+            "CisBench"
+          ]
+        },
+        {
+          "source": "./components/SchedulerConfig",
+          "specifiers": [
+            "SchedulerConfig"
+          ]
+        },
+        {
+          "source": "./components/SastScan",
+          "specifiers": [
+            "SastScan"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 290,
+      "hasStructuralAnalysis": true
+    },
+    "frontend/src/components/CisBench.tsx": {
+      "filePath": "frontend/src/components/CisBench.tsx",
+      "contentHash": "4105bd8bb23e4eedd2559eac14f9853d13d9fdc734dc0f9a0e8befbd9ef748c1",
+      "functions": [
+        {
+          "name": "CisBench",
+          "params": [],
+          "exported": false,
+          "lineCount": 82
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "React",
+            "useState"
+          ]
+        },
+        {
+          "source": "lucide-react",
+          "specifiers": [
+            "Settings",
+            "Loader2"
+          ]
+        },
+        {
+          "source": "axios",
+          "specifiers": [
+            "axios"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 89,
+      "hasStructuralAnalysis": true
+    },
+    "frontend/src/components/ContainersList.tsx": {
+      "filePath": "frontend/src/components/ContainersList.tsx",
+      "contentHash": "5029bf16c98233ee1f43d66976d2f66045ff103ad1eb1fe29347a37c167f1392",
+      "functions": [
+        {
+          "name": "ContainersList",
+          "params": [
+            "{ containers }"
+          ],
+          "exported": false,
+          "lineCount": 51
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "React"
+          ]
+        },
+        {
+          "source": "lucide-react",
+          "specifiers": [
+            "Play",
+            "Square"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 57,
+      "hasStructuralAnalysis": true
+    },
+    "frontend/src/components/ImagesList.tsx": {
+      "filePath": "frontend/src/components/ImagesList.tsx",
+      "contentHash": "5b4cd1059fd7091f7f3f92dea6c852029527bc36824be78965424ca9a6df4813",
+      "functions": [
+        {
+          "name": "ImagesList",
+          "params": [
+            "{ images }"
+          ],
+          "exported": false,
+          "lineCount": 414
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "React",
+            "useState"
+          ]
+        },
+        {
+          "source": "react-dom",
+          "specifiers": [
+            "createPortal"
+          ]
+        },
+        {
+          "source": "lucide-react",
+          "specifiers": [
+            "Play",
+            "ShieldAlert",
+            "Loader2",
+            "Wand2",
+            "Download",
+            "Bell"
+          ]
+        },
+        {
+          "source": "react-markdown",
+          "specifiers": [
+            "ReactMarkdown"
+          ]
+        },
+        {
+          "source": "axios",
+          "specifiers": [
+            "axios"
+          ]
+        },
+        {
+          "source": "jspdf",
+          "specifiers": [
+            "jsPDF"
+          ]
+        },
+        {
+          "source": "jspdf-autotable",
+          "specifiers": [
+            "autoTable"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 425,
+      "hasStructuralAnalysis": true
+    },
+    "frontend/src/components/SastScan.tsx": {
+      "filePath": "frontend/src/components/SastScan.tsx",
+      "contentHash": "2f3876512f1f7f9900ed275fcbb80438212e8253aa570f47e130367735c2078d",
+      "functions": [
+        {
+          "name": "SastScan",
+          "params": [],
+          "exported": false,
+          "lineCount": 179
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "React",
+            "useState"
+          ]
+        },
+        {
+          "source": "axios",
+          "specifiers": [
+            "axios"
+          ]
+        },
+        {
+          "source": "lucide-react",
+          "specifiers": [
+            "Search",
+            "AlertTriangle",
+            "CheckCircle",
+            "Code",
+            "Shield"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 186,
+      "hasStructuralAnalysis": true
+    },
+    "frontend/src/components/SchedulerConfig.tsx": {
+      "filePath": "frontend/src/components/SchedulerConfig.tsx",
+      "contentHash": "82e320cdfa54e73802343d8ebc8eaccf6763a3cc38954e1ed4f34c10ec606d5e",
+      "functions": [
+        {
+          "name": "SchedulerConfig",
+          "params": [],
+          "exported": false,
+          "lineCount": 113
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "React",
+            "useState",
+            "useEffect"
+          ]
+        },
+        {
+          "source": "axios",
+          "specifiers": [
+            "axios"
+          ]
+        },
+        {
+          "source": "lucide-react",
+          "specifiers": [
+            "Clock",
+            "CheckCircle",
+            "AlertCircle"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 120,
+      "hasStructuralAnalysis": true
+    },
+    "frontend/src/index.css": {
+      "filePath": "frontend/src/index.css",
+      "contentHash": "8f1fdc0245ebbd5da82cec91dd7f529120235e8a99cc035e3dcfee570370ba2c",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 162,
+      "hasStructuralAnalysis": false
+    },
+    "frontend/src/main.tsx": {
+      "filePath": "frontend/src/main.tsx",
+      "contentHash": "b57d0e845746c053172c8ff0d569a17f54d1435353ba5a885f1093dd29b6ca62",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "StrictMode"
+          ]
+        },
+        {
+          "source": "react-dom/client",
+          "specifiers": [
+            "createRoot"
+          ]
+        },
+        {
+          "source": "./index.css",
+          "specifiers": []
+        },
+        {
+          "source": "./App.jsx",
+          "specifiers": [
+            "App"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 11,
+      "hasStructuralAnalysis": true
+    },
+    "frontend/tsconfig.json": {
+      "filePath": "frontend/tsconfig.json",
+      "contentHash": "aba9f74f69078d70698da5307a9c4551db26fff2bf60502a225baf0dee19930d",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 21,
+      "hasStructuralAnalysis": true
+    },
+    "frontend/vite.config.js": {
+      "filePath": "frontend/vite.config.js",
+      "contentHash": "824ff6b45226e89e12e0dd8d2f3aef28ecae5b454158660daf2928371d27362f",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "vite",
+          "specifiers": [
+            "defineConfig"
+          ]
+        },
+        {
+          "source": "@vitejs/plugin-react",
+          "specifiers": [
+            "react"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 12,
+      "hasStructuralAnalysis": true
+    }
+  }
+}

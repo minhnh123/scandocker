@@ -27,16 +27,36 @@ function CisBench() {
         <Settings /> CIS Benchmark
       </h2>
       <p style={{ color: 'var(--text-muted)', marginBottom: '24px' }}>
-        Chạy Docker Bench for Security để kiểm tra các cấu hình máy chủ và Docker daemon theo tiêu chuẩn CIS.
-        Lưu ý: Trên Windows (Docker Desktop), một số bài kiểm tra máy chủ sẽ không khả dụng do chạy qua VM.
+        Chạy Docker Bench for Security để kiểm tra các cấu hình máy chủ và Docker daemon theo tiêu
+        chuẩn CIS. Lưu ý: Trên Windows (Docker Desktop), một số bài kiểm tra máy chủ sẽ không khả
+        dụng do chạy qua VM.
       </p>
 
       <button className="btn btn-primary" onClick={handleScan} disabled={scanning}>
-        {scanning ? <><Loader2 size={16} className="spin" style={{marginRight: '8px', animation: 'spin 1s linear infinite'}} /> Đang chạy benchmark...</> : 'Bắt đầu Benchmark'}
+        {scanning ? (
+          <>
+            <Loader2
+              size={16}
+              className="spin"
+              style={{ marginRight: '8px', animation: 'spin 1s linear infinite' }}
+            />{' '}
+            Đang chạy benchmark...
+          </>
+        ) : (
+          'Bắt đầu Benchmark'
+        )}
       </button>
 
       {error && (
-        <div style={{ marginTop: '24px', color: 'var(--danger)', padding: '12px', background: 'rgba(239, 68, 68, 0.1)', borderRadius: '8px' }}>
+        <div
+          style={{
+            marginTop: '24px',
+            color: 'var(--danger)',
+            padding: '12px',
+            background: 'rgba(239, 68, 68, 0.1)',
+            borderRadius: '8px',
+          }}
+        >
           {error}
         </div>
       )}
@@ -44,17 +64,19 @@ function CisBench() {
       {result && (
         <div style={{ marginTop: '24px' }}>
           <h3>Kết quả Benchmark:</h3>
-          <pre style={{ 
-              marginTop: '12px', 
-              background: 'rgba(0,0,0,0.5)', 
-              padding: '16px', 
+          <pre
+            style={{
+              marginTop: '12px',
+              background: 'rgba(0,0,0,0.5)',
+              padding: '16px',
               borderRadius: '8px',
               overflowX: 'auto',
               fontSize: '14px',
               color: 'var(--text-main)',
               maxHeight: '500px',
-              overflowY: 'auto'
-          }}>
+              overflowY: 'auto',
+            }}
+          >
             {result}
           </pre>
         </div>

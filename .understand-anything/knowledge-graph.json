@@ -1,0 +1,1713 @@
+{
+  "version": "1.0.0",
+  "project": {
+    "name": "frontend",
+    "languages": [
+      "css",
+      "html",
+      "javascript",
+      "json",
+      "markdown",
+      "python",
+      "toml",
+      "typescript",
+      "yaml"
+    ],
+    "frameworks": [
+      "GitHub Actions",
+      "React",
+      "Vite",
+      "Vitest"
+    ],
+    "description": "No description available",
+    "analyzedAt": "2026-05-25T16:49:09.081Z",
+    "gitCommitHash": "a43320c2d3c78e291139953f9bccae90159167cd"
+  },
+  "nodes": [
+    {
+      "id": "config:.github/workflows/security.yml",
+      "type": "config",
+      "name": "security.yml",
+      "filePath": ".github/workflows/security.yml",
+      "summary": "Luồng công việc GitHub Actions tự động quét bảo mật mã nguồn.",
+      "tags": [
+        "configuration",
+        "setup"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:AI_INSTRUCTIONS.md",
+      "type": "document",
+      "name": "AI_INSTRUCTIONS.md",
+      "filePath": "AI_INSTRUCTIONS.md",
+      "summary": "Tài liệu hướng dẫn phát triển dự án và đặc tả kiến trúc bảo mật.",
+      "tags": [
+        "documentation",
+        "development",
+        "configuration",
+        "guidelines"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:backend/database.py",
+      "type": "file",
+      "name": "database.py",
+      "filePath": "backend/database.py",
+      "summary": "Lớp giao tiếp cơ sở dữ liệu SQLite để lưu trữ lịch sử quét.",
+      "tags": [
+        "database",
+        "sqlite",
+        "data-model",
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:backend/database.py:init_db",
+      "type": "function",
+      "name": "init_db",
+      "filePath": "backend/database.py",
+      "lineRange": [
+        9,
+        37
+      ],
+      "summary": "Khởi tạo cấu trúc cơ sở dữ liệu SQLite, tạo bảng lưu trữ lịch sử quét.",
+      "tags": [
+        "database",
+        "setup"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:backend/database.py:save_scan",
+      "type": "function",
+      "name": "save_scan",
+      "filePath": "backend/database.py",
+      "lineRange": [
+        40,
+        53
+      ],
+      "summary": "Lưu kết quả quét hình ảnh Docker vào SQLite bao gồm số lượng lỗ hổng và dữ liệu JSON thô.",
+      "tags": [
+        "database",
+        "vulnerability",
+        "write"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:backend/database.py:get_history",
+      "type": "function",
+      "name": "get_history",
+      "filePath": "backend/database.py",
+      "lineRange": [
+        56,
+        71
+      ],
+      "summary": "Truy xuất lịch sử quét bảo mật từ cơ sở dữ liệu SQLite.",
+      "tags": [
+        "database",
+        "history",
+        "read"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:backend/database.py:get_schedule_settings",
+      "type": "function",
+      "name": "get_schedule_settings",
+      "filePath": "backend/database.py",
+      "lineRange": [
+        74,
+        81
+      ],
+      "summary": "Truy xuất cấu hình đặt lịch quét tự động từ SQLite.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:backend/database.py:update_schedule_settings",
+      "type": "function",
+      "name": "update_schedule_settings",
+      "filePath": "backend/database.py",
+      "lineRange": [
+        84,
+        92
+      ],
+      "summary": "Cập nhật cấu hình đặt lịch quét tự động trong SQLite.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:backend/main.py",
+      "type": "file",
+      "name": "main.py",
+      "filePath": "backend/main.py",
+      "summary": "Điểm bắt đầu của ứng dụng FastAPI backend đăng ký các API endpoint.",
+      "tags": [
+        "entry-point",
+        "api-handler",
+        "fastapi",
+        "tested"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:backend/main.py:get_docker_client",
+      "type": "function",
+      "name": "get_docker_client",
+      "filePath": "backend/main.py",
+      "lineRange": [
+        33,
+        41
+      ],
+      "summary": "Khởi tạo và trả về đối tượng Docker client để giao tiếp với Docker daemon.",
+      "tags": [
+        "docker",
+        "client",
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:backend/main.py:scheduled_scan_all_containers",
+      "type": "function",
+      "name": "scheduled_scan_all_containers",
+      "filePath": "backend/main.py",
+      "lineRange": [
+        45,
+        65
+      ],
+      "summary": "Thực thi quét tất cả các container đang hoạt động theo lịch đặt trước.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:backend/main.py:update_scheduler_job",
+      "type": "function",
+      "name": "update_scheduler_job",
+      "filePath": "backend/main.py",
+      "lineRange": [
+        67,
+        74
+      ],
+      "summary": "Cập nhật tác vụ chạy nền APScheduler dựa trên cấu hình lịch mới.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:backend/main.py:startup_event",
+      "type": "function",
+      "name": "startup_event",
+      "filePath": "backend/main.py",
+      "lineRange": [
+        77,
+        79
+      ],
+      "summary": "Thiết lập cơ sở dữ liệu SQLite và kích hoạt lịch quét nền khi server khởi động.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:backend/main.py:shutdown_event",
+      "type": "function",
+      "name": "shutdown_event",
+      "filePath": "backend/main.py",
+      "lineRange": [
+        82,
+        83
+      ],
+      "summary": "Dừng tác vụ quét nền và giải phóng tài nguyên khi server dừng hoạt động.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:backend/main.py:read_root",
+      "type": "function",
+      "name": "read_root",
+      "filePath": "backend/main.py",
+      "lineRange": [
+        86,
+        88
+      ],
+      "summary": "Endpoint API gốc trả về trạng thái hoạt động của máy chủ backend.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:backend/main.py:get_images",
+      "type": "function",
+      "name": "get_images",
+      "filePath": "backend/main.py",
+      "lineRange": [
+        92,
+        106
+      ],
+      "summary": "Endpoint API để lấy danh sách các Docker images hiện có trên máy.",
+      "tags": [
+        "docker",
+        "images",
+        "api"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:backend/main.py:get_containers",
+      "type": "function",
+      "name": "get_containers",
+      "filePath": "backend/main.py",
+      "lineRange": [
+        110,
+        125
+      ],
+      "summary": "Endpoint API để truy xuất danh sách container Docker đang chạy.",
+      "tags": [
+        "docker",
+        "containers",
+        "api"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:backend/main.py:scan_image",
+      "type": "function",
+      "name": "scan_image",
+      "filePath": "backend/main.py",
+      "lineRange": [
+        129,
+        185
+      ],
+      "summary": "Endpoint API để quét hình ảnh Docker và trả về kết quả.",
+      "tags": [
+        "security",
+        "scan",
+        "api"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:backend/main.py:scan_cis",
+      "type": "function",
+      "name": "scan_cis",
+      "filePath": "backend/main.py",
+      "lineRange": [
+        189,
+        263
+      ],
+      "summary": "Endpoint API để thực hiện kiểm toán bảo mật CIS trên container đang chạy.",
+      "tags": [
+        "security",
+        "cis-bench",
+        "api"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:backend/main.py:auto_remediate",
+      "type": "function",
+      "name": "auto_remediate",
+      "filePath": "backend/main.py",
+      "lineRange": [
+        275,
+        290
+      ],
+      "summary": "Endpoint API để tự động khắc phục các lỗi cấu hình bảo mật được phát hiện.",
+      "tags": [
+        "ai",
+        "remediation",
+        "api"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:backend/main.py:get_scan_history",
+      "type": "function",
+      "name": "get_scan_history",
+      "filePath": "backend/main.py",
+      "lineRange": [
+        294,
+        299
+      ],
+      "summary": "Endpoint API để lấy lịch sử các lượt quét bảo mật.",
+      "tags": [
+        "database",
+        "history",
+        "api"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:backend/main.py:test_telegram_alert",
+      "type": "function",
+      "name": "test_telegram_alert",
+      "filePath": "backend/main.py",
+      "lineRange": [
+        303,
+        308
+      ],
+      "summary": "Endpoint API dùng để gửi tin nhắn cảnh báo thử nghiệm qua Telegram.",
+      "tags": [
+        "notification",
+        "telegram",
+        "test"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:backend/main.py:get_schedule",
+      "type": "function",
+      "name": "get_schedule",
+      "filePath": "backend/main.py",
+      "lineRange": [
+        315,
+        316
+      ],
+      "summary": "Endpoint API truy xuất cấu hình lịch quét tự động hiện tại.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:backend/main.py:update_schedule",
+      "type": "function",
+      "name": "update_schedule",
+      "filePath": "backend/main.py",
+      "lineRange": [
+        319,
+        322
+      ],
+      "summary": "Endpoint API cập nhật và áp dụng lịch quét tự động mới.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:backend/main.py:scan_sast",
+      "type": "function",
+      "name": "scan_sast",
+      "filePath": "backend/main.py",
+      "lineRange": [
+        328,
+        351
+      ],
+      "summary": "Endpoint API kích hoạt quét tĩnh SAST cho thư mục mã nguồn.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:backend/main.py:RemediationRequest",
+      "type": "class",
+      "name": "RemediationRequest",
+      "filePath": "backend/main.py",
+      "lineRange": [
+        266,
+        271
+      ],
+      "summary": "Mẫu Pydantic định nghĩa dữ liệu yêu cầu khắc phục lỗ hổng.",
+      "tags": [
+        "data-model",
+        "api"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:backend/main.py:ScheduleConfig",
+      "type": "class",
+      "name": "ScheduleConfig",
+      "filePath": "backend/main.py",
+      "lineRange": [
+        310,
+        312
+      ],
+      "summary": "Mẫu Pydantic định nghĩa cấu hình đặt lịch quét tự động.",
+      "tags": [
+        "data-model"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:backend/main.py:SastRequest",
+      "type": "class",
+      "name": "SastRequest",
+      "filePath": "backend/main.py",
+      "lineRange": [
+        324,
+        325
+      ],
+      "summary": "Mẫu Pydantic định nghĩa dữ liệu yêu cầu quét tĩnh SAST.",
+      "tags": [
+        "data-model"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:backend/notifier.py",
+      "type": "file",
+      "name": "notifier.py",
+      "filePath": "backend/notifier.py",
+      "summary": "Dịch vụ gửi thông báo cảnh báo bảo mật qua Telegram.",
+      "tags": [
+        "notification",
+        "telegram",
+        "alert",
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:backend/notifier.py:send_telegram_alert",
+      "type": "function",
+      "name": "send_telegram_alert",
+      "filePath": "backend/notifier.py",
+      "lineRange": [
+        14,
+        43
+      ],
+      "summary": "Gửi tin nhắn cảnh báo đến chat Telegram bằng yêu cầu HTTP POST.",
+      "tags": [
+        "telegram",
+        "webhook"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:backend/pyproject.toml",
+      "type": "config",
+      "name": "pyproject.toml",
+      "filePath": "backend/pyproject.toml",
+      "summary": "Tệp cấu hình quản lý thư viện và môi trường Python Poetry.",
+      "tags": [
+        "configuration",
+        "python",
+        "linter",
+        "build-system"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:backend/test_main.py",
+      "type": "file",
+      "name": "test_main.py",
+      "filePath": "backend/test_main.py",
+      "summary": "Các bài kiểm thử API backend và tích hợp định tuyến.",
+      "tags": [
+        "test",
+        "integration-test",
+        "fastapi"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:backend/test_main.py:test_read_root",
+      "type": "function",
+      "name": "test_read_root",
+      "filePath": "backend/test_main.py",
+      "lineRange": [
+        6,
+        9
+      ],
+      "summary": "Bài kiểm thử đơn vị kiểm tra hoạt động của endpoint API gốc.",
+      "tags": [
+        "test",
+        "api"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:backend/test_main.py:test_get_history",
+      "type": "function",
+      "name": "test_get_history",
+      "filePath": "backend/test_main.py",
+      "lineRange": [
+        11,
+        15
+      ],
+      "summary": "Bài kiểm thử đơn vị kiểm tra hoạt động của endpoint lấy lịch sử quét.",
+      "tags": [
+        "test",
+        "api"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:ci-scripts/trigger_scan.py",
+      "type": "file",
+      "name": "trigger_scan.py",
+      "filePath": "ci-scripts/trigger_scan.py",
+      "summary": "Kịch bản Python tự động kích hoạt tiến trình quét qua dòng lệnh hoặc CI/CD.",
+      "tags": [
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:ci-scripts/trigger_scan.py:check_security",
+      "type": "function",
+      "name": "check_security",
+      "filePath": "ci-scripts/trigger_scan.py",
+      "lineRange": [
+        9,
+        62
+      ],
+      "summary": "Hàm phân tích kết quả quét và gửi cảnh báo nếu phát hiện lỗ hổng.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:frontend/eslint.config.js",
+      "type": "file",
+      "name": "eslint.config.js",
+      "filePath": "frontend/eslint.config.js",
+      "summary": "Quy tắc kiểm tra chất lượng và định dạng mã nguồn ESLint cho frontend.",
+      "tags": [
+        "code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:frontend/index.html",
+      "type": "file",
+      "name": "index.html",
+      "filePath": "frontend/index.html",
+      "summary": "Tệp HTML chính đóng vai trò làm khung đỡ cho ứng dụng frontend.",
+      "tags": [
+        "entry-point",
+        "markup",
+        "html"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:frontend/package.json",
+      "type": "config",
+      "name": "package.json",
+      "filePath": "frontend/package.json",
+      "summary": "Tệp quản lý thư viện phụ thuộc và các kịch bản chạy npm frontend.",
+      "tags": [
+        "configuration",
+        "react",
+        "vite",
+        "build-system"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:frontend/README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "frontend/README.md",
+      "summary": "Tài liệu hướng dẫn cài đặt và khởi chạy ứng dụng frontend React.",
+      "tags": [
+        "documentation",
+        "overview",
+        "entry-point"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:frontend/src/App.css",
+      "type": "file",
+      "name": "App.css",
+      "filePath": "frontend/src/App.css",
+      "summary": "Tập tin CSS định nghĩa kiểu giao diện toàn cục và thanh cuộn tùy chỉnh cho ứng dụng.",
+      "tags": [
+        "markup",
+        "css",
+        "styling"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:frontend/src/App.test.tsx",
+      "type": "file",
+      "name": "App.test.tsx",
+      "filePath": "frontend/src/App.test.tsx",
+      "summary": "Các bài kiểm thử đơn vị frontend xác thực việc hiển thị thành phần React App.",
+      "tags": [
+        "test",
+        "react",
+        "unit-test"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:frontend/src/App.tsx",
+      "type": "file",
+      "name": "App.tsx",
+      "filePath": "frontend/src/App.tsx",
+      "summary": "Thành phần gốc quản lý trạng thái, bố cục và điều hướng chính.",
+      "tags": [
+        "entry-point",
+        "component",
+        "react",
+        "state-management",
+        "tested"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:frontend/src/App.tsx:App",
+      "type": "function",
+      "name": "App",
+      "filePath": "frontend/src/App.tsx",
+      "lineRange": [
+        29,
+        287
+      ],
+      "summary": "Thành phần hàm chính quản lý giao diện chính và định tuyến các view.",
+      "tags": [
+        "react",
+        "component",
+        "entry-point"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:frontend/src/components/CisBench.tsx",
+      "type": "file",
+      "name": "CisBench.tsx",
+      "filePath": "frontend/src/components/CisBench.tsx",
+      "summary": "Thành phần hiển thị kết quả kiểm tra cấu hình bảo mật CIS Docker.",
+      "tags": [
+        "component",
+        "react",
+        "security",
+        "cis-bench"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:frontend/src/components/CisBench.tsx:CisBench",
+      "type": "function",
+      "name": "CisBench",
+      "filePath": "frontend/src/components/CisBench.tsx",
+      "lineRange": [
+        5,
+        86
+      ],
+      "summary": "Hàm hiển thị bảng kết quả kiểm toán bảo mật CIS.",
+      "tags": [
+        "react",
+        "component",
+        "security"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:frontend/src/components/ContainersList.tsx",
+      "type": "file",
+      "name": "ContainersList.tsx",
+      "filePath": "frontend/src/components/ContainersList.tsx",
+      "summary": "Thành phần hiển thị danh sách container đang chạy và lỗ hổng.",
+      "tags": [
+        "component",
+        "react",
+        "containers"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:frontend/src/components/ContainersList.tsx:ContainersList",
+      "type": "function",
+      "name": "ContainersList",
+      "filePath": "frontend/src/components/ContainersList.tsx",
+      "lineRange": [
+        4,
+        54
+      ],
+      "summary": "Hàm hiển thị danh sách các container Docker đang chạy.",
+      "tags": [
+        "react",
+        "component",
+        "containers"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:frontend/src/components/ImagesList.tsx",
+      "type": "file",
+      "name": "ImagesList.tsx",
+      "filePath": "frontend/src/components/ImagesList.tsx",
+      "summary": "Thành phần hiển thị danh sách hình ảnh Docker và kích hoạt quét Trivy.",
+      "tags": [
+        "component",
+        "react",
+        "security",
+        "images",
+        "remediation"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:frontend/src/components/ImagesList.tsx:ImagesList",
+      "type": "function",
+      "name": "ImagesList",
+      "filePath": "frontend/src/components/ImagesList.tsx",
+      "lineRange": [
+        9,
+        422
+      ],
+      "summary": "Hàm hiển thị danh sách các Docker images và xử lý nút quét.",
+      "tags": [
+        "react",
+        "component",
+        "security"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:frontend/src/components/SastScan.tsx",
+      "type": "file",
+      "name": "SastScan.tsx",
+      "filePath": "frontend/src/components/SastScan.tsx",
+      "summary": "Thành phần quản lý quét mã nguồn tĩnh (SAST) phát hiện secrets rò rỉ.",
+      "tags": [
+        "code"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:frontend/src/components/SastScan.tsx:SastScan",
+      "type": "function",
+      "name": "SastScan",
+      "filePath": "frontend/src/components/SastScan.tsx",
+      "lineRange": [
+        5,
+        183
+      ],
+      "summary": "Hàm hiển thị giao diện quét SAST và phát hiện rò rỉ thông tin.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:frontend/src/components/SchedulerConfig.tsx",
+      "type": "file",
+      "name": "SchedulerConfig.tsx",
+      "filePath": "frontend/src/components/SchedulerConfig.tsx",
+      "summary": "Thành phần cấu hình đặt lịch quét định kỳ cho các container.",
+      "tags": [
+        "code"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:frontend/src/components/SchedulerConfig.tsx:SchedulerConfig",
+      "type": "function",
+      "name": "SchedulerConfig",
+      "filePath": "frontend/src/components/SchedulerConfig.tsx",
+      "lineRange": [
+        5,
+        117
+      ],
+      "summary": "Hàm hiển thị bảng cấu hình lịch quét tự động.",
+      "tags": [
+        "utility"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:frontend/src/index.css",
+      "type": "file",
+      "name": "index.css",
+      "filePath": "frontend/src/index.css",
+      "summary": "Kiểu CSS toàn cục thiết lập giao diện tối và hiệu ứng kính (glassmorphic).",
+      "tags": [
+        "markup",
+        "css",
+        "styling"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:frontend/src/main.tsx",
+      "type": "file",
+      "name": "main.tsx",
+      "filePath": "frontend/src/main.tsx",
+      "summary": "Điểm khởi tạo ứng dụng React frontend và gắn kết DOM.",
+      "tags": [
+        "entry-point",
+        "component",
+        "react",
+        "bootstrap"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:frontend/tsconfig.json",
+      "type": "config",
+      "name": "tsconfig.json",
+      "filePath": "frontend/tsconfig.json",
+      "summary": "Cấu hình quy tắc biên dịch TypeScript cho dự án frontend.",
+      "tags": [
+        "configuration",
+        "typescript",
+        "build-system"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:frontend/vite.config.js",
+      "type": "file",
+      "name": "vite.config.js",
+      "filePath": "frontend/vite.config.js",
+      "summary": "Cấu hình dự án Vite cho ứng dụng frontend React.",
+      "tags": [
+        "code"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:backend/database.py",
+      "target": "function:backend/database.py:init_db",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:backend/database.py",
+      "target": "function:backend/database.py:init_db",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:backend/database.py",
+      "target": "function:backend/database.py:save_scan",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:backend/database.py",
+      "target": "function:backend/database.py:save_scan",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:backend/database.py",
+      "target": "function:backend/database.py:get_history",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:backend/database.py",
+      "target": "function:backend/database.py:get_history",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:backend/database.py",
+      "target": "function:backend/database.py:get_schedule_settings",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:backend/database.py",
+      "target": "function:backend/database.py:get_schedule_settings",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:backend/database.py",
+      "target": "function:backend/database.py:update_schedule_settings",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:backend/database.py",
+      "target": "function:backend/database.py:update_schedule_settings",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:backend/main.py",
+      "target": "function:backend/main.py:get_docker_client",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:backend/main.py",
+      "target": "function:backend/main.py:get_docker_client",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:backend/main.py",
+      "target": "function:backend/main.py:scheduled_scan_all_containers",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:backend/main.py",
+      "target": "function:backend/main.py:scheduled_scan_all_containers",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:backend/main.py",
+      "target": "function:backend/main.py:update_scheduler_job",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:backend/main.py",
+      "target": "function:backend/main.py:update_scheduler_job",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:backend/main.py",
+      "target": "function:backend/main.py:startup_event",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:backend/main.py",
+      "target": "function:backend/main.py:startup_event",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:backend/main.py",
+      "target": "function:backend/main.py:shutdown_event",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:backend/main.py",
+      "target": "function:backend/main.py:shutdown_event",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:backend/main.py",
+      "target": "function:backend/main.py:read_root",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:backend/main.py",
+      "target": "function:backend/main.py:read_root",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:backend/main.py",
+      "target": "function:backend/main.py:get_images",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:backend/main.py",
+      "target": "function:backend/main.py:get_images",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:backend/main.py",
+      "target": "function:backend/main.py:get_containers",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:backend/main.py",
+      "target": "function:backend/main.py:get_containers",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:backend/main.py",
+      "target": "function:backend/main.py:scan_image",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:backend/main.py",
+      "target": "function:backend/main.py:scan_image",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:backend/main.py",
+      "target": "function:backend/main.py:scan_cis",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:backend/main.py",
+      "target": "function:backend/main.py:scan_cis",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:backend/main.py",
+      "target": "function:backend/main.py:auto_remediate",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:backend/main.py",
+      "target": "function:backend/main.py:auto_remediate",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:backend/main.py",
+      "target": "function:backend/main.py:get_scan_history",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:backend/main.py",
+      "target": "function:backend/main.py:get_scan_history",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:backend/main.py",
+      "target": "function:backend/main.py:test_telegram_alert",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:backend/main.py",
+      "target": "function:backend/main.py:test_telegram_alert",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:backend/main.py",
+      "target": "function:backend/main.py:get_schedule",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:backend/main.py",
+      "target": "function:backend/main.py:get_schedule",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:backend/main.py",
+      "target": "function:backend/main.py:update_schedule",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:backend/main.py",
+      "target": "function:backend/main.py:update_schedule",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:backend/main.py",
+      "target": "function:backend/main.py:scan_sast",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:backend/main.py",
+      "target": "function:backend/main.py:scan_sast",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:backend/main.py",
+      "target": "class:backend/main.py:RemediationRequest",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:backend/main.py",
+      "target": "class:backend/main.py:RemediationRequest",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:backend/main.py",
+      "target": "class:backend/main.py:ScheduleConfig",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:backend/main.py",
+      "target": "class:backend/main.py:ScheduleConfig",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:backend/main.py",
+      "target": "class:backend/main.py:SastRequest",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:backend/main.py",
+      "target": "class:backend/main.py:SastRequest",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:backend/notifier.py",
+      "target": "function:backend/notifier.py:send_telegram_alert",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:backend/notifier.py",
+      "target": "function:backend/notifier.py:send_telegram_alert",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:backend/test_main.py",
+      "target": "function:backend/test_main.py:test_read_root",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:backend/test_main.py",
+      "target": "function:backend/test_main.py:test_read_root",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:backend/test_main.py",
+      "target": "function:backend/test_main.py:test_get_history",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:backend/test_main.py",
+      "target": "function:backend/test_main.py:test_get_history",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:ci-scripts/trigger_scan.py",
+      "target": "function:ci-scripts/trigger_scan.py:check_security",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:ci-scripts/trigger_scan.py",
+      "target": "function:ci-scripts/trigger_scan.py:check_security",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "function:frontend/src/App.tsx:App",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frontend/src/components/CisBench.tsx",
+      "target": "function:frontend/src/components/CisBench.tsx:CisBench",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frontend/src/components/ContainersList.tsx",
+      "target": "function:frontend/src/components/ContainersList.tsx:ContainersList",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frontend/src/components/ImagesList.tsx",
+      "target": "function:frontend/src/components/ImagesList.tsx:ImagesList",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frontend/src/components/SastScan.tsx",
+      "target": "function:frontend/src/components/SastScan.tsx:SastScan",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frontend/src/components/SchedulerConfig.tsx",
+      "target": "function:frontend/src/components/SchedulerConfig.tsx:SchedulerConfig",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:backend/main.py",
+      "target": "file:backend/database.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:backend/main.py",
+      "target": "file:backend/notifier.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:backend/test_main.py",
+      "target": "file:backend/main.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frontend/src/App.test.tsx",
+      "target": "file:frontend/src/App.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "file:frontend/src/components/CisBench.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "file:frontend/src/components/ContainersList.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "file:frontend/src/components/ImagesList.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "file:frontend/src/components/SastScan.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "file:frontend/src/components/SchedulerConfig.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "function:backend/main.py:scheduled_scan_all_containers",
+      "target": "function:backend/main.py:get_docker_client",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:backend/main.py:scheduled_scan_all_containers",
+      "target": "function:backend/main.py:scan_image",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:backend/main.py:update_scheduler_job",
+      "target": "function:backend/database.py:get_schedule_settings",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:backend/main.py:startup_event",
+      "target": "function:backend/main.py:update_scheduler_job",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:backend/main.py:read_root",
+      "target": "function:backend/main.py:get_docker_client",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:backend/main.py:get_images",
+      "target": "function:backend/main.py:get_docker_client",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:backend/main.py:get_containers",
+      "target": "function:backend/main.py:get_docker_client",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:backend/main.py:scan_image",
+      "target": "function:backend/main.py:get_docker_client",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:backend/main.py:scan_image",
+      "target": "function:backend/database.py:save_scan",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:backend/main.py:scan_image",
+      "target": "function:backend/notifier.py:send_telegram_alert",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:backend/main.py:scan_cis",
+      "target": "function:backend/main.py:get_docker_client",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:backend/main.py:get_scan_history",
+      "target": "function:backend/database.py:get_history",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:backend/main.py:test_telegram_alert",
+      "target": "function:backend/notifier.py:send_telegram_alert",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:backend/main.py:get_schedule",
+      "target": "function:backend/database.py:get_schedule_settings",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:backend/main.py:update_schedule",
+      "target": "function:backend/database.py:update_schedule_settings",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:backend/main.py:update_schedule",
+      "target": "function:backend/main.py:update_scheduler_job",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frontend/src/main.tsx",
+      "target": "file:frontend/src/index.css",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:backend/main.py",
+      "target": "file:backend/test_main.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:frontend/src/App.tsx",
+      "target": "file:frontend/src/App.test.tsx",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "config:frontend/tsconfig.json",
+      "target": "file:frontend/src/main.tsx",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:frontend/package.json",
+      "target": "file:frontend/src/main.tsx",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:backend/pyproject.toml",
+      "target": "file:backend/main.py",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "document:AI_INSTRUCTIONS.md",
+      "target": "file:backend/main.py",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:frontend/README.md",
+      "target": "file:frontend/src/main.tsx",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ],
+  "layers": [
+    {
+      "id": "layer:api-backend",
+      "name": "Lớp API Backend",
+      "description": "Các endpoint FastAPI và bộ xử lý yêu cầu quản lý quét container, kiểm tra CIS và khắc phục lỗi bằng AI.",
+      "nodeIds": [
+        "file:backend/main.py"
+      ]
+    },
+    {
+      "id": "layer:database-backend",
+      "name": "Lớp Cơ sở Dữ liệu Backend",
+      "description": "Khởi tạo cơ sở dữ liệu SQLite và các hàm truy vấn để lưu trữ kết quả và lịch sử quét.",
+      "nodeIds": [
+        "file:backend/database.py"
+      ]
+    },
+    {
+      "id": "layer:utilities-backend",
+      "name": "Tiện ích Backend",
+      "description": "Các mô-đun hỗ trợ thông báo qua Telegram để gửi cảnh báo về trạng thái quét và lỗ hổng.",
+      "nodeIds": [
+        "file:backend/notifier.py"
+      ]
+    },
+    {
+      "id": "layer:tests-backend",
+      "name": "Kiểm thử Backend",
+      "description": "Các bài kiểm thử đơn vị và tích hợp kiểm tra các bộ định tuyến endpoint FastAPI.",
+      "nodeIds": [
+        "file:backend/test_main.py"
+      ]
+    },
+    {
+      "id": "layer:frontend-ui",
+      "name": "Thành phần Giao diện Frontend",
+      "description": "Các thành phần React, khung ứng dụng, phong cách và kiểm thử đơn vị hiển thị ứng dụng web quét bảo mật.",
+      "nodeIds": [
+        "file:frontend/src/App.css",
+        "file:frontend/src/App.test.tsx",
+        "file:frontend/src/App.tsx",
+        "file:frontend/src/components/CisBench.tsx",
+        "file:frontend/src/components/ContainersList.tsx",
+        "file:frontend/src/components/ImagesList.tsx",
+        "file:frontend/src/components/SastScan.tsx",
+        "file:frontend/src/components/SchedulerConfig.tsx",
+        "file:frontend/src/index.css",
+        "file:frontend/src/main.tsx"
+      ]
+    },
+    {
+      "id": "layer:configuration",
+      "name": "Cấu hình Dự án",
+      "description": "Các tệp cấu hình thiết lập Vite, ESLint, TypeScript và dự án python chỉ định cài đặt môi trường và quy tắc biên dịch.",
+      "nodeIds": [
+        "config:backend/pyproject.toml",
+        "file:frontend/eslint.config.js",
+        "file:frontend/index.html",
+        "config:frontend/package.json",
+        "config:frontend/tsconfig.json",
+        "file:frontend/vite.config.js"
+      ]
+    },
+    {
+      "id": "layer:documentation",
+      "name": "Tài liệu Dự án",
+      "description": "Các tệp Readme và hướng dẫn AI cung cấp tài liệu tổng quan cho việc phát triển và thực thi.",
+      "nodeIds": [
+        "document:AI_INSTRUCTIONS.md",
+        "document:frontend/README.md"
+      ]
+    },
+    {
+      "id": "layer:ci-cd",
+      "name": "CI/CD & Tự động hóa",
+      "description": "Các kịch bản tự động hóa và luồng công việc để chạy quét trong các đường ống và môi trường.",
+      "nodeIds": [
+        "config:.github/workflows/security.yml",
+        "file:ci-scripts/trigger_scan.py"
+      ]
+    }
+  ],
+  "tour": [
+    {
+      "order": 1,
+      "title": "Hướng dẫn & Kiến trúc Dự án",
+      "description": "Bắt đầu với hướng dẫn lập trình viên chính trong AI_INSTRUCTIONS.md. Tệp này thiết lập các hướng dẫn phát triển cốt lõi, cấu trúc cơ sở dữ liệu và các quy tắc thiết kế hệ thống (như dark glassmorphism và các mẫu FastAPI) cho toàn bộ ứng dụng ScanDocker.",
+      "nodeIds": [
+        "document:AI_INSTRUCTIONS.md"
+      ],
+      "languageLesson": "Tài liệu Markdown hoạt động như một đặc tả sống. Việc chỉ định các hướng dẫn kiến trúc trực tiếp trong kho lưu trữ giúp quá trình phát triển đồng bộ giữa backend và frontend."
+    },
+    {
+      "order": 2,
+      "title": "Điểm bắt đầu Backend & Bộ định tuyến FastAPI",
+      "description": "Điểm bắt đầu backend chính tại backend/main.py định nghĩa thực thể ứng dụng FastAPI và đăng ký các endpoint để quét hình ảnh Docker, kiểm tra CIS và sửa lỗi bằng AI. Nó hoạt động như một bộ điều phối kết nối các yêu cầu HTTP với cơ sở dữ liệu backend và thông báo Telegram.",
+      "nodeIds": [
+        "file:backend/main.py"
+      ],
+      "languageLesson": "FastAPI sử dụng gợi ý kiểu (type hints) của Python và schema Pydantic để xác thực dữ liệu yêu cầu gửi đến tại thời điểm chạy và tự động tạo tài liệu API Swagger tương tác."
+    },
+    {
+      "order": 3,
+      "title": "Lưu trữ Cơ sở Dữ liệu SQLite",
+      "description": "Lớp lưu trữ dữ liệu tại backend/database.py xử lý việc khởi tạo cơ sở dữ liệu SQLite, tạo schema cơ sở dữ liệu, lưu và truy vấn kết quả quét. Nó lưu trữ siêu dữ liệu về số lượng lỗ hổng, thẻ hình ảnh và báo cáo quét thô.",
+      "nodeIds": [
+        "file:backend/database.py"
+      ],
+      "languageLesson": "SQLite là một công cụ cơ sở dữ liệu SQL tự chứa, không cần máy chủ. Sử dụng các kết nối con trỏ đơn giản thông qua thư viện tiêu chuẩn sqlite3 rất hiệu quả cho các ứng dụng nhẹ."
+    },
+    {
+      "order": 4,
+      "title": "Bot thông báo Telegram",
+      "description": "Bộ hỗ trợ thông báo tại backend/notifier.py quản lý việc gửi cảnh báo đến kênh chat Telegram bằng API webhook của Telegram. Nó định dạng các cảnh báo quét bảo mật để nhanh chóng cảnh báo người dùng về các lỗ hổng nghiêm trọng trong các container Docker của họ.",
+      "nodeIds": [
+        "file:backend/notifier.py"
+      ],
+      "languageLesson": "Các yêu cầu HTTP bất đồng bộ trong Python có thể được triển khai bằng các thư viện như HTTPX, cho phép gọi các webhook bên ngoài mà không làm nghẽn luồng sự kiện chính."
+    },
+    {
+      "order": 5,
+      "title": "Gắn kết Frontend & Chủ đề CSS",
+      "description": "Các điểm bắt đầu của máy khách frontend tại frontend/src/main.tsx và index.html gắn kết khung ứng dụng React. Các định nghĩa kiểu toàn cục trong frontend/src/index.css thiết lập chủ đề thiết kế dark glassmorphism được sử dụng trên toàn bộ các thành phần.",
+      "nodeIds": [
+        "file:frontend/src/main.tsx",
+        "file:frontend/src/index.css",
+        "file:frontend/index.html"
+      ],
+      "languageLesson": "Vite sử dụng các mô-đun ES gốc để cung cấp tính năng thay thế mô-đun nóng (HMR) cực nhanh trong quá trình phát triển bằng cách biên dịch TypeScript nhanh chóng."
+    },
+    {
+      "order": 6,
+      "title": "Trạng thái & Góc nhìn Ứng dụng Chính",
+      "description": "Thành phần React chính App.tsx quản lý các trạng thái toàn cục như các góc nhìn đang hoạt động (Hình ảnh, Container, kiểm tra CIS), trạng thái tải và cảnh báo lỗi backend. Nó tìm nạp danh sách hình ảnh/container từ máy chủ FastAPI và truyền chúng xuống các thành phần con.",
+      "nodeIds": [
+        "file:frontend/src/App.tsx"
+      ],
+      "languageLesson": "Các hook trạng thái React (useState và useEffect) quản lý vòng đời thành phần và các cập nhật phản ứng. Việc hợp nhất việc tìm nạp trạng thái ở cấp cao nhất giúp tránh các yêu cầu mạng trùng lặp."
+    },
+    {
+      "order": 7,
+      "title": "Kiểm toán Bảo mật & Quét Hình ảnh",
+      "description": "Các thành phần ImagesList.tsx, CisBench.tsx, ContainersList.tsx, SastScan.tsx, và SchedulerConfig.tsx hiển thị các chức năng cốt lõi của bảng điều khiển quét, hỗ trợ quét lỗ hổng Trivy, kiểm tra CIS, quét tĩnh SAST và cấu hình lịch trình cảnh báo.",
+      "nodeIds": [
+        "file:frontend/src/components/ImagesList.tsx",
+        "file:frontend/src/components/CisBench.tsx",
+        "file:frontend/src/components/ContainersList.tsx",
+        "file:frontend/src/components/SastScan.tsx",
+        "file:frontend/src/components/SchedulerConfig.tsx"
+      ],
+      "languageLesson": "Các thành phần React đóng gói các trách nhiệm UI cụ thể. Việc chia nhỏ bảng điều khiển thành các widget giúp việc bảo trì và phân tích hiệu suất dễ dàng hơn nhiều."
+    },
+    {
+      "order": 8,
+      "title": "Kịch bản Tự động hóa CI/CD",
+      "description": "Kịch bản tự động hóa tại ci-scripts/trigger_scan.py và luồng công việc GitHub trong .github/workflows/ cho phép chạy các quét bảo mật tự động được kích hoạt bởi các đường ống dẫn.",
+      "nodeIds": [
+        "file:ci-scripts/trigger_scan.py"
+      ],
+      "languageLesson": "Tích hợp các kiểm tra bảo mật tự động trong đường ống CI/CD đảm bảo phát hiện sớm các lỗ hổng và thực thi các tiêu chuẩn tuân thủ."
+    }
+  ]
+}
